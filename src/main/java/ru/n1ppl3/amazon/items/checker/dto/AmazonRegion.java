@@ -1,8 +1,15 @@
 package ru.n1ppl3.amazon.items.checker.dto;
 
 import jdk.nashorn.internal.ir.annotations.Immutable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+/**
+ * регион амазоновского сайта
+ * co.jp, com и т.д.
+ */
 @Immutable
+@AllArgsConstructor
 public enum AmazonRegion {
 
     GERMANY("de"),
@@ -10,15 +17,8 @@ public enum AmazonRegion {
     USA("com"),
     UK("co.uk");
 
+    @Getter
     private final String code;
-
-    AmazonRegion(String code) {
-        this.code = code;
-    }
-
-    public String getCode() {
-        return code;
-    }
 
     public static AmazonRegion fromString(String str) {
         for (AmazonRegion amazonRegion : AmazonRegion.values()) {

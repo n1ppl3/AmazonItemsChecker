@@ -3,6 +3,10 @@ package ru.n1ppl3.amazon.items.checker.dto;
 import jdk.nashorn.internal.ir.annotations.Immutable;
 import lombok.Data;
 
+/**
+ * parser for URLs just like this
+ * http://www.amazon.co.jp/gp/offer-listing/B000AA7D8M/ref=dp_olp_new?ie=UTF8&condition=new
+ */
 @Data
 @Immutable
 public class AmazonUrl {
@@ -13,10 +17,6 @@ public class AmazonUrl {
     private final AmazonRegion region;
     private final String amazonItemId;
 
-    /**
-     * parser for URLs just like this
-     * http://www.amazon.co.jp/gp/offer-listing/B000AA7D8M/ref=dp_olp_new?ie=UTF8&condition=new
-     */
     public AmazonUrl(String url) {
         if (url == null || !url.contains(AMAZON) || !url.contains(OFFER_LISTING)) {
             throw new IllegalArgumentException("Bad amazon url: " + url);
