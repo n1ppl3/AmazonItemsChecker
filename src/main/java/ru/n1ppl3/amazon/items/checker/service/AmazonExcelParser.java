@@ -9,7 +9,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
-import org.springframework.util.StringUtils;
 import ru.n1ppl3.amazon.items.checker.dto.AmazonExcelRow;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ import java.util.function.Predicate;
 @Slf4j
 public abstract class AmazonExcelParser {
 
-    private static final Predicate<String> isAmazonUrl = s -> StringUtils.hasText(s) && s.contains("http") && s.contains("amazon");
+    private static final Predicate<String> isAmazonUrl = s -> s != null && s.contains("http") && s.contains("amazon");
 
     /**
      * парсит заданный xls файл, находя в нём ссылки на item'ы с Амазона

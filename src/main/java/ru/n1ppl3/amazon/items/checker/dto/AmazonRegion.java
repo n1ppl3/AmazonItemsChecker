@@ -1,5 +1,8 @@
 package ru.n1ppl3.amazon.items.checker.dto;
 
+import jdk.nashorn.internal.ir.annotations.Immutable;
+
+@Immutable
 public enum AmazonRegion {
 
     GERMANY("de"),
@@ -11,6 +14,10 @@ public enum AmazonRegion {
 
     AmazonRegion(String code) {
         this.code = code;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public static AmazonRegion fromString(String str) {
